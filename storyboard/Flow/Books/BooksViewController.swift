@@ -16,7 +16,7 @@ class BooksViewController: UIViewController, UITableViewDataSource {
     
     
     override func viewDidLoad() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         tableView.dataSource = self
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,9 +25,9 @@ class BooksViewController: UIViewController, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "id") {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()) {
             cell.textLabel?.text = elements[indexPath.row]
-return cell
+            return cell
         }
        
         return UITableViewCell()
