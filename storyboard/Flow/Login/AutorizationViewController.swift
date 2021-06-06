@@ -14,8 +14,6 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func didTapButton(_ sender: Any) {
-        func viewDidLoad() {
-            super.viewDidLoad()
-        }
+         viewDidLoad() 
     }
 }
