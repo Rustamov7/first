@@ -8,15 +8,14 @@
 import UIKit
 
 class AuthorizationViewController: UIViewController {
-
+    
     @IBOutlet weak var loginTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func didTapButton(_ sender: Any) {
-   //     print(loginTextField.text)
         func viewDidLoad() {
-                super.viewDidLoad()
+            super.viewDidLoad()
+        }
     }
-}
 }

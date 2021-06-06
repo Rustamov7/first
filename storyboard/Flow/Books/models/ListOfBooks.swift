@@ -13,11 +13,10 @@ struct ListOfBooks: Decodable {
     let total, limit, offset, page: Int
     let pages: Int
 }
-
 // MARK: - Doc
 struct Doc: Decodable {
     let id, name: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case name

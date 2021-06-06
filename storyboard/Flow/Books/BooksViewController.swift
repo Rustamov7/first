@@ -10,30 +10,27 @@ import Alamofire
 
 class BooksViewController: UIViewController, UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
     var model: ListOfBooks?
-    let NetWork = Network()
+    let netWork = Network()
     
     override func viewDidLoad() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
         tableView.dataSource = self
-     
         
-        NetWork.getData { model in
+        
+        netWork.getData { model in
             self.model = model
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
         
-        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.docs.count ?? 0
-    
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -46,5 +43,4 @@ class BooksViewController: UIViewController, UITableViewDataSource {
         
         return UITableViewCell()
     }
-    
 }
