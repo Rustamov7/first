@@ -20,42 +20,31 @@ class BooksViewController: UIViewController, UITableViewDataSource {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
         tableView.dataSource = self
-     //   getData()
-       // NetWork.getData()
+     
         
-        NetWork.getData()
+        NetWork.getData { model in
+            self.model = model
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.docs.count ?? 0
-        // return model?.total
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()){
-            cell.textLabel?.text = model?.docs[indexPath.row].name
+        if let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
+           let model = model {
+            cell.textLabel?.text = model.docs[indexPath.row].name
             return cell
         }
         
         return UITableViewCell()
     }
     
-   /* func getData()
-    {
-        let request = AF.request("https://the-one-api.dev/v2/book", method: .get)
-        
-        request.response
-        {   response in
-            if let data = response.data
-            {
-                do {
-                    self.model = try JSONDecoder().decode(ListOfBooks.self, from: data)
-                    }
-                catch {
-                    print(error)
-                    
-                        }
-            }
-        }
-    }*/
 }

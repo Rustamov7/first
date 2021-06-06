@@ -10,9 +10,9 @@ import Alamofire
 
 class Network {
     let URL = "https://the-one-api.dev/v2/book"
-    var model: ListOfBooks?
+    //var model: ListOfBooks?
     
-    func getData()
+    func getData(completion: @escaping (ListOfBooks) -> Void)
     {
         let request = AF.request(URL, method: .get)
         
@@ -21,7 +21,8 @@ class Network {
             if let data = response.data
             {
                 do {
-                    self.model = try JSONDecoder().decode(ListOfBooks.self, from: data)
+                let model = try JSONDecoder().decode(ListOfBooks.self, from: data)
+                    completion(model)
                     }
                 catch {
                     print(error)
@@ -30,4 +31,5 @@ class Network {
             }
         }
     }
+
 }
