@@ -6,31 +6,41 @@
 //
 
 import UIKit
+import Alamofire
 
 class BooksViewController: UIViewController, UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
-    var elements: [String] = ["Andrey", "Vlad"]
-    
+    var model: ListOfBooks?
+    let netWork = Network()
     
     override func viewDidLoad() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        
         tableView.dataSource = self
+        
+        
+        netWork.getData { model in
+            self.model = model
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return elements.count
+        return model?.docs.count ?? 0
+        
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()) {
-            cell.textLabel?.text = elements[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
+           let model = model {
+            cell.textLabel?.text = model.docs[indexPath.row].name
             return cell
         }
-       
+        
         return UITableViewCell()
     }
 }
-
