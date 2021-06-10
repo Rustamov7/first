@@ -16,6 +16,9 @@
 		E76E2D0D266D685C00D6D8CA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E2D0C266D685C00D6D8CA /* Route.swift */; };
 		E76E2D10266D690200D6D8CA /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E2D0F266D690200D6D8CA /* BooksService.swift */; };
 		E76E2D12266D69A900D6D8CA /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E2D11266D69A900D6D8CA /* BooksRoute.swift */; };
+		E77C1F8A267138B800326B8D /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = E77C1F89267138B800326B8D /* Rswift */; };
+		E77C1F8C26713A4800326B8D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77C1F8B26713A4800326B8D /* R.generated.swift */; };
+		E77C1F8F26722E1F00326B8D /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = E77C1F8E26722E1F00326B8D /* Localizible.strings */; };
 		E796EDF026679ECF0035F74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796EDEF26679ECF0035F74A /* AppDelegate.swift */; };
 		E796EDF226679ECF0035F74A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796EDF126679ECF0035F74A /* SceneDelegate.swift */; };
 		E796EDF426679ECF0035F74A /* AutorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796EDF326679ECF0035F74A /* AutorizationViewController.swift */; };
@@ -52,6 +55,8 @@
 		E76E2D0C266D685C00D6D8CA /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		E76E2D0F266D690200D6D8CA /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
 		E76E2D11266D69A900D6D8CA /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
+		E77C1F8B26713A4800326B8D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		E77C1F8E26722E1F00326B8D /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		E796EDEC26679ECF0035F74A /* storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E796EDEF26679ECF0035F74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E796EDF126679ECF0035F74A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E724CB362668F49300FBFA40 /* Alamofire in Frameworks */,
+				E77C1F8A267138B800326B8D /* Rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +179,14 @@
 			path = Chapters;
 			sourceTree = "<group>";
 		};
+		E77C1F8D26722DBD00326B8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E77C1F8E26722E1F00326B8D /* Localizible.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E796EDE326679ECF0035F74A = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +210,8 @@
 		E796EDEE26679ECF0035F74A /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				E77C1F8D26722DBD00326B8D /* Resources */,
+				E77C1F8B26713A4800326B8D /* R.generated.swift */,
 				E76E2D08266D667000D6D8CA /* Core */,
 				E737C4642667B3E800BC08F2 /* Flow */,
 				E796EDEF26679ECF0035F74A /* AppDelegate.swift */,
@@ -233,6 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E796EE1626679ED40035F74A /* Build configuration list for PBXNativeTarget "storyboard" */;
 			buildPhases = (
+				E77C1F872671373100326B8D /* R.swift */,
 				E796EDE826679ECF0035F74A /* Sources */,
 				E796EDE926679ECF0035F74A /* Frameworks */,
 				E796EDEA26679ECF0035F74A /* Resources */,
@@ -244,6 +261,7 @@
 			name = storyboard;
 			packageProductDependencies = (
 				E724CB352668F49300FBFA40 /* Alamofire */,
+				E77C1F89267138B800326B8D /* Rswift */,
 			);
 			productName = storyboard;
 			productReference = E796EDEC26679ECF0035F74A /* storyboard.app */;
@@ -318,6 +336,7 @@
 			mainGroup = E796EDE326679ECF0035F74A;
 			packageReferences = (
 				E724CB342668F49200FBFA40 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E77C1F88267138B800326B8D /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			productRefGroup = E796EDED26679ECF0035F74A /* Products */;
 			projectDirPath = "";
@@ -336,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E796EDFC26679ED40035F74A /* LaunchScreen.storyboard in Resources */,
+				E77C1F8F26722E1F00326B8D /* Localizible.strings in Resources */,
 				E796EDF926679ED40035F74A /* Assets.xcassets in Resources */,
 				E796EDF726679ECF0035F74A /* Main.storyboard in Resources */,
 			);
@@ -357,6 +377,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E77C1F872671373100326B8D /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/storyboard/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrswift generate \"$SRCROOT/storyboard/R.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E796EDE826679ECF0035F74A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -373,6 +416,7 @@
 				E76E2D0D266D685C00D6D8CA /* Route.swift in Sources */,
 				E796EDF026679ECF0035F74A /* AppDelegate.swift in Sources */,
 				E796EDF226679ECF0035F74A /* SceneDelegate.swift in Sources */,
+				E77C1F8C26713A4800326B8D /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +595,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = storyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,6 +614,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = storyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -710,6 +756,14 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		E77C1F88267138B800326B8D /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -717,6 +771,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E724CB342668F49200FBFA40 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E77C1F89267138B800326B8D /* Rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E77C1F88267138B800326B8D /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = Rswift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
