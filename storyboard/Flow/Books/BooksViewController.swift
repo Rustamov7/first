@@ -12,7 +12,6 @@ class BooksViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     var model: ListOfBooks?
-    // let netWork = Network()
     let service = BookService()
     
     override func viewDidLoad() {
