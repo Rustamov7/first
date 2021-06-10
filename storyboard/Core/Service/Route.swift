@@ -1,0 +1,43 @@
+//
+//  Route.swift
+//  storyboard
+//
+//  Created by Vladimir on 06.06.2021.
+//
+
+import Foundation
+import Alamofire
+
+protocol Route {
+    
+    var method: HTTPMethod { get }
+    
+    var url: String { get }
+    
+    var encoding: ParameterEncoding { get }
+    
+    var headers: HTTPHeaders { get }
+    
+    var baseURL: String { get }
+    
+    var parameters: [String: Any] { get }
+    
+    func makeURL() -> String
+}
+
+extension Route {
+    
+    var method: HTTPMethod { .get }
+    
+    var encoding: ParameterEncoding { URLEncoding.default }
+    
+    var baseURL: String { "https://the-one-api.dev/v2" }
+    
+    var headers: HTTPHeaders { [:] }
+    
+    var parameters: [String: Any] { [:] }
+    
+    func makeURL() -> String {
+        baseURL.appending(url)
+    }
+}
