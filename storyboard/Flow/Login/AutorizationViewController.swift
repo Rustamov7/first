@@ -13,5 +13,10 @@ class AuthorizationViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = R.string.localizible.loginNewTitle()
+    }
+    
     @IBAction func didTapButton(_ sender: Any) {}
 }
