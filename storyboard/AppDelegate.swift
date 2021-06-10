@@ -20,16 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         window?.rootViewController = tabBarViewController
-            
-//        let tabBarController = UITabBarController()
-//        tabBarController.viewControllers = [AuthorizationViewController(), UIViewController()].map {
-//            UINavigationController(rootViewController: $0)
-//        }
-//
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = tabBarController
-//        window.makeKeyAndVisible()
-//        self.window = window
 
         return true
     }
