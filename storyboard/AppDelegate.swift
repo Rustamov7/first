@@ -17,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let tabBarViewController = UITabBarController()
         tabBarViewController.viewControllers = [R.storyboard.main.instantiateInitialViewController(), UIViewController()].compactMap { $0 }
+<<<<<<< HEAD
         window?.makeKeyAndVisible()
         window?.rootViewController = tabBarViewController
+=======
+        
+        window?.makeKeyAndVisible()
+        window?.rootViewController = tabBarViewController
+
+>>>>>>> e23231c5b32e3582f5a7406c5e128531afd74414
         return true
     }
 }
 
+ 
