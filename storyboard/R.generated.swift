@@ -141,10 +141,12 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizible` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizible` struct is generated, and contains static references to 2 localization keys.
     struct localizible {
       /// Value: Авторизация
       static let loginNewTitle = Rswift.StringResource(key: "Login.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Книги
+      static let booksNewTitle = Rswift.StringResource(key: "Books.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Авторизация
       static func loginNewTitle(preferredLanguages: [String]? = nil) -> String {
@@ -157,6 +159,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Login.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Книги
+      static func booksNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Books.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "Books.NewTitle"
+        }
+
+        return NSLocalizedString("Books.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

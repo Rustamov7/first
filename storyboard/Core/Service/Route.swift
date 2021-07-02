@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-
+import KeychainSwift
 protocol Route {
     
     var method: HTTPMethod { get }
@@ -33,8 +33,12 @@ extension Route {
     
     var baseURL: String { "https://the-one-api.dev/v2" }
     
-    var headers: HTTPHeaders { [:] }
-    
+    var headers: HTTPHeaders {
+        if let token = KeychainSwift().get(KeychainSwift.Keys.token.rawValue) {
+            return ["Authorization": "Bearer \(token)"]
+        }
+        return [:]
+    }
     var parameters: [String: Any] { [:] }
     
     func makeURL() -> String {
