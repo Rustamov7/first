@@ -21,7 +21,6 @@
 		E77C1F8C26713A4800326B8D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77C1F8B26713A4800326B8D /* R.generated.swift */; };
 		E77C1F8F26722E1F00326B8D /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = E77C1F8E26722E1F00326B8D /* Localizible.strings */; };
 		E796EDF026679ECF0035F74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796EDEF26679ECF0035F74A /* AppDelegate.swift */; };
-		E796EDF226679ECF0035F74A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796EDF126679ECF0035F74A /* SceneDelegate.swift */; };
 		E796EDF426679ECF0035F74A /* AutorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E796EDF326679ECF0035F74A /* AutorizationViewController.swift */; };
 		E796EDF726679ECF0035F74A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E796EDF526679ECF0035F74A /* Main.storyboard */; };
 		E796EDF926679ED40035F74A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E796EDF826679ED40035F74A /* Assets.xcassets */; };
@@ -65,7 +64,6 @@
 		E77C1F8E26722E1F00326B8D /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		E796EDEC26679ECF0035F74A /* storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E796EDEF26679ECF0035F74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E796EDF126679ECF0035F74A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E796EDF326679ECF0035F74A /* AutorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationViewController.swift; sourceTree = "<group>"; };
 		E796EDF626679ECF0035F74A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E796EDF826679ED40035F74A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				E76E2D08266D667000D6D8CA /* Core */,
 				E737C4642667B3E800BC08F2 /* Flow */,
 				E796EDEF26679ECF0035F74A /* AppDelegate.swift */,
-				E796EDF126679ECF0035F74A /* SceneDelegate.swift */,
 				E796EDF526679ECF0035F74A /* Main.storyboard */,
 				E796EDF826679ED40035F74A /* Assets.xcassets */,
 				E796EDFA26679ED40035F74A /* LaunchScreen.storyboard */,
@@ -483,7 +480,6 @@
 				E76E2D12266D69A900D6D8CA /* BooksRoute.swift in Sources */,
 				E76E2D0D266D685C00D6D8CA /* Route.swift in Sources */,
 				E796EDF026679ECF0035F74A /* AppDelegate.swift in Sources */,
-				E796EDF226679ECF0035F74A /* SceneDelegate.swift in Sources */,
 				E72C894D2673823E00B5F42F /* AutorizationService.swift in Sources */,
 				E77C1F8C26713A4800326B8D /* R.generated.swift in Sources */,
 			);

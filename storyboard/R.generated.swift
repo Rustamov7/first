@@ -141,12 +141,24 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizible` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizible` struct is generated, and contains static references to 8 localization keys.
     struct localizible {
       /// Value: Авторизация
       static let loginNewTitle = Rswift.StringResource(key: "Login.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Вход
+      static let loginButtonNewTitle = Rswift.StringResource(key: "LoginButton.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Выход
+      static let exitNewTitle = Rswift.StringResource(key: "Exit.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Книги
       static let booksNewTitle = Rswift.StringResource(key: "Books.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Логин
+      static let loginfieldNewTitle = Rswift.StringResource(key: "Loginfield.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Неправильная пара логин/пароль
+      static let errorMessageNewTitle = Rswift.StringResource(key: "ErrorMessage.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ошибка
+      static let errorNewTitle = Rswift.StringResource(key: "Error.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Пароль
+      static let passwordNewTitle = Rswift.StringResource(key: "Password.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Авторизация
       static func loginNewTitle(preferredLanguages: [String]? = nil) -> String {
@@ -161,6 +173,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Login.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
       }
 
+      /// Value: Вход
+      static func loginButtonNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("LoginButton.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "LoginButton.NewTitle"
+        }
+
+        return NSLocalizedString("LoginButton.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Выход
+      static func exitNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Exit.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "Exit.NewTitle"
+        }
+
+        return NSLocalizedString("Exit.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
       /// Value: Книги
       static func booksNewTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
@@ -172,6 +210,58 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Books.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Логин
+      static func loginfieldNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Loginfield.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "Loginfield.NewTitle"
+        }
+
+        return NSLocalizedString("Loginfield.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Неправильная пара логин/пароль
+      static func errorMessageNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ErrorMessage.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "ErrorMessage.NewTitle"
+        }
+
+        return NSLocalizedString("ErrorMessage.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ошибка
+      static func errorNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Error.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "Error.NewTitle"
+        }
+
+        return NSLocalizedString("Error.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Пароль
+      static func passwordNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Password.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "Password.NewTitle"
+        }
+
+        return NSLocalizedString("Password.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

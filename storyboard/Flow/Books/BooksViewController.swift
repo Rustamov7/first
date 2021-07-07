@@ -14,16 +14,6 @@ class BooksViewController: UIViewController{
     let service = BookService()
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.plain)
     
-    private func updateLayout(with size: CGSize) {
-        self.tableView.frame = CGRect.init(origin: .zero, size: size)
-    }
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { (contex) in
-            self.updateLayout(with: size)
-        }, completion: nil)
-    }
-    
     override func viewDidLoad() {
         title = R.string.localizible.booksNewTitle()
         
@@ -33,12 +23,12 @@ class BooksViewController: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
         self.updateLayout(with: self.view.frame.size)
-        ExitButton()
+        exitButton()
         getData()
         
         
-        func ExitButton() {
-            let barButton = UIBarButtonItem(title: "Выход",
+        func exitButton() {
+            let barButton = UIBarButtonItem(title: R.string.localizible.exitNewTitle(),
                                             style: .plain,
                                             target: self,
                                             action: #selector(logout(sender:)))
@@ -59,6 +49,9 @@ class BooksViewController: UIViewController{
             self.tableView.reloadData()
         }
     }
+    private func updateLayout(with size: CGSize) {
+        tableView.frame = CGRect.init(origin: .zero, size: size)
+    }
 }
 extension BooksViewController: UITableViewDataSource
 {
@@ -74,7 +67,6 @@ extension BooksViewController: UITableViewDataSource
             cell.textLabel?.text = model.docs[indexPath.row].name
             return cell
         }
-        
         return UITableViewCell()
     }
 }
