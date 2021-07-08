@@ -57,12 +57,10 @@ class AuthorizationViewController: UIViewController {
         NSLayoutConstraint.activate([
             loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 75),
             loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -75),
-           // loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
             
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 75),
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -75),
-            //passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             passwordTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 75),
@@ -71,13 +69,12 @@ class AuthorizationViewController: UIViewController {
         
     }
     
-    
     @objc func didTapButton() {
         
         guard  let login = loginTextField.text, let password = passwordTextField.text else {
             return
         }
-        let checkLogin = AppDelegate()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if login != "vova" || password != "123" {
             error()
         }
@@ -86,19 +83,7 @@ class AuthorizationViewController: UIViewController {
                 switch result {
                 case let .success(token):
                     KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
-                 return checkLogin.checkLogin()
-                    print(token)
-//
-//                    DispatchQueue.main.async {
-//                        KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
-//                        let vc = UITabBarController()
-//                        vc.viewControllers = [BooksViewController(), UIViewController()].map {
-//                            UINavigationController(rootViewController: $0)
-//                        }
-//                        self.window = UIWindow(frame: UIScreen.main.bounds)
-//                        self.window?.makeKeyAndVisible()
-//                        self.window?.rootViewController = vc
-//                    }
+                    appDelegate.checkLogin()
                 case let .failure(error):
                     print(error)
                 }

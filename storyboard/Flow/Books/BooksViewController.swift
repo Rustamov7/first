@@ -38,8 +38,8 @@ class BooksViewController: UIViewController{
     }
     @objc func logout(sender: UIBarButtonItem) {
         KeychainSwift().delete(KeychainSwift.Keys.token.rawValue)
-        let vc = UINavigationController(rootViewController: AuthorizationViewController())
-        UIApplication.shared.keyWindow?.rootViewController = vc
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.checkLogin()
     }
     
     
