@@ -21,7 +21,7 @@ class AuthorizationViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.layer.borderWidth = borderWidth
         textField.layer.borderColor = borderColor.cgColor
-        textField .translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
@@ -31,7 +31,7 @@ class AuthorizationViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.layer.borderWidth = borderWidth
         textField.layer.borderColor = borderColor.cgColor
-        textField .translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
@@ -55,18 +55,18 @@ class AuthorizationViewController: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         NSLayoutConstraint.activate([
-            loginTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 75),
-            loginTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -75),
-            loginTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            loginTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -50),
+            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 75),
+            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -75),
+           // loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
             
-            passwordTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 75),
-            passwordTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -75),
-            passwordTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            passwordTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 75),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -75),
+            //passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            passwordTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            loginButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 75),
-            loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 75),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
     }
@@ -77,6 +77,7 @@ class AuthorizationViewController: UIViewController {
         guard  let login = loginTextField.text, let password = passwordTextField.text else {
             return
         }
+        let checkLogin = AppDelegate()
         if login != "vova" || password != "123" {
             error()
         }
@@ -84,16 +85,20 @@ class AuthorizationViewController: UIViewController {
             service.authorize(login: login, password: password) { result in
                 switch result {
                 case let .success(token):
-                    DispatchQueue.main.async {
-                        KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
-                        let vc = UITabBarController()
-                        vc.viewControllers = [BooksViewController(), UIViewController()].map {
-                            UINavigationController(rootViewController: $0)
-                        }
-                        self.window = UIWindow(frame: UIScreen.main.bounds)
-                        self.window?.makeKeyAndVisible()
-                        self.window?.rootViewController = vc
-                    }
+                    KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
+                 return checkLogin.checkLogin()
+                    print(token)
+//
+//                    DispatchQueue.main.async {
+//                        KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
+//                        let vc = UITabBarController()
+//                        vc.viewControllers = [BooksViewController(), UIViewController()].map {
+//                            UINavigationController(rootViewController: $0)
+//                        }
+//                        self.window = UIWindow(frame: UIScreen.main.bounds)
+//                        self.window?.makeKeyAndVisible()
+//                        self.window?.rootViewController = vc
+//                    }
                 case let .failure(error):
                     print(error)
                 }
