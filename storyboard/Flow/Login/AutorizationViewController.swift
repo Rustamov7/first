@@ -74,32 +74,25 @@ class AuthorizationViewController: UIViewController {
         guard  let login = loginTextField.text, let password = passwordTextField.text else {
             return
         }
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if login != "vova" || password != "123" {
-            error()
-        }
-        else {
-            service.authorize(login: login, password: password) { result in
-                switch result {
-                case let .success(token):
-                    KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
-                    appDelegate.checkLogin()
-                case let .failure(error):
-                    print(error)
-                }
+        service.authorize(login: login, password: password) { result in
+            switch result {
+            case let .success(token):
+                KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
+                //appDelegate?.checkLogin()
+                (UIApplication.shared.delegate as? AppDelegate)?.checkLogin()
+            case let .failure(error):
+                self.errorMessage()
+                print(error)
             }
         }
     }
     
-    func error(){
+    func errorMessage(){
         let alert = UIAlertController(title: R.string.localizible.errorNewTitle(), message: R.string.localizible.errorMessageNewTitle(), preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
         })
         alert.addAction(ok)
-        DispatchQueue.main.async(execute: {
-            self.present(alert, animated: true)
-        })
-        
+        self.present(alert, animated: true)
     }
 }

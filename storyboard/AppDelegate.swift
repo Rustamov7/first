@@ -20,23 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func checkLogin() {
-        DispatchQueue.main.async {
-            var controller = UIViewController()
+        var controller = UIViewController()
+        
+        if (KeychainSwift().get(KeychainSwift.Keys.token.rawValue) != nil) {
+            let tabBarViewController = UITabBarController()
             
-            if (KeychainSwift().get("token") != nil) {
-                let tabBarViewController = UITabBarController()
-                
-                tabBarViewController.viewControllers = [BooksViewController(), UIViewController()].map {
-                    UINavigationController(rootViewController: $0)
-                }
-                controller = tabBarViewController
-            } else {
-                controller = UINavigationController(rootViewController: AuthorizationViewController())
+            tabBarViewController.viewControllers = [BooksViewController(), UIViewController()].map {
+                UINavigationController(rootViewController: $0)
             }
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.makeKeyAndVisible()
-            self.window?.rootViewController = controller
+            controller = tabBarViewController
+        } else {
+            controller = UINavigationController(rootViewController: AuthorizationViewController())
         }
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = controller
     }
 }
-
