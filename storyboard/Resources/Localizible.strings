@@ -1,0 +1,15 @@
+/* 
+  Localizible.strings
+  storyboard
+
+  Created by Vladimir on 10.06.2021.
+  
+*/
+"Login.NewTitle" = "Авторизация";
+"Books.NewTitle" = "Книги";
+"Exit.NewTitle" = "Выход";
+"LoginButton.NewTitle" = "Вход";
+"Loginfield.NewTitle" = "Логин";
+"Password.NewTitle" = "Пароль";
+"ErrorMessage.NewTitle" = "Неправильная пара логин/пароль";
+"Error.NewTitle" = "Ошибка";
