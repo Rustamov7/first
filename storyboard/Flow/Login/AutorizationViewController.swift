@@ -48,6 +48,8 @@ class AuthorizationViewController: UIViewController {
         constrains()
         
         loginButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+//        NotificationCenter.default.addObserver(self, selector: #selector(didTapButton), name: NSNotification.Name("Login"), object: nil)
+      
     }
     func constrains() {
         view.backgroundColor = .white
@@ -79,7 +81,8 @@ class AuthorizationViewController: UIViewController {
             case let .success(token):
                 KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
                 //appDelegate?.checkLogin()
-                (UIApplication.shared.delegate as? AppDelegate)?.checkLogin()
+               // (UIApplication.shared.delegate as? AppDelegate)?.checkLogin()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
             case let .failure(error):
                 self.errorMessage()
                 print(error)

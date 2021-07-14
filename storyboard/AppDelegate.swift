@@ -14,12 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        checkLogin()
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.checkLogin), name: NSNotification.Name("Login"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
         return true
     }
     
-    func checkLogin() {
+    @objc func checkLogin() {
         var controller = UIViewController()
         
         if (KeychainSwift().get(KeychainSwift.Keys.token.rawValue) != nil) {

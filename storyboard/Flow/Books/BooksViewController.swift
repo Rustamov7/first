@@ -40,7 +40,8 @@ class BooksViewController: UIViewController{
         KeychainSwift().delete(KeychainSwift.Keys.token.rawValue)
         //        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         //        appDelegate?.checkLogin()
-        (UIApplication.shared.delegate as? AppDelegate)?.checkLogin()
+      //  (UIApplication.shared.delegate as? AppDelegate)?.checkLogin()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
     }
     
     
