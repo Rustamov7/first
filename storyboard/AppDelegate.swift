@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.checkLogin), name: NSNotification.Name("Login"), object: nil)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.checkLogin), name: .checkLogin, object: nil)
+        checkLogin()
         return true
     }
     
@@ -36,4 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = controller
     }
+}
+extension Notification.Name {
+    static let checkLogin = Notification.Name("check login")
 }

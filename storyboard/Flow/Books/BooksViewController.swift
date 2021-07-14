@@ -17,12 +17,12 @@ class BooksViewController: UIViewController{
     override func viewDidLoad() {
         title = R.string.localizible.booksNewTitle()
         
-        self.view.addSubview(self.tableView)
+        view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
         tableView.dataSource = self
         tableView.delegate = self
-        self.updateLayout(with: self.view.frame.size)
+        updateLayout(with: view.frame.size)
         exitButton()
         getData()
         
@@ -32,16 +32,13 @@ class BooksViewController: UIViewController{
                                             style: .plain,
                                             target: self,
                                             action: #selector(logout(sender:)))
-            self.navigationItem.leftBarButtonItem = barButton
+            navigationItem.leftBarButtonItem = barButton
         }
         
     }
     @objc func logout(sender: UIBarButtonItem) {
         KeychainSwift().delete(KeychainSwift.Keys.token.rawValue)
-        //        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        //        appDelegate?.checkLogin()
-      //  (UIApplication.shared.delegate as? AppDelegate)?.checkLogin()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
+        NotificationCenter.default.post(name: .checkLogin, object: nil)
     }
     
     
