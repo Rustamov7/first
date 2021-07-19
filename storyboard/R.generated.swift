@@ -141,7 +141,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizible` struct is generated, and contains static references to 8 localization keys.
+    /// This `R.string.localizible` struct is generated, and contains static references to 9 localization keys.
     struct localizible {
       /// Value: Авторизация
       static let loginNewTitle = Rswift.StringResource(key: "Login.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -159,6 +159,8 @@ struct R: Rswift.Validatable {
       static let errorNewTitle = Rswift.StringResource(key: "Error.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Пароль
       static let passwordNewTitle = Rswift.StringResource(key: "Password.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Цитаты
+      static let quoteNewTitle = Rswift.StringResource(key: "Quote.NewTitle", tableName: "Localizible", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Авторизация
       static func loginNewTitle(preferredLanguages: [String]? = nil) -> String {
@@ -262,6 +264,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Password.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
+      }
+
+      /// Value: Цитаты
+      static func quoteNewTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Quote.NewTitle", tableName: "Localizible", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizible", preferredLanguages: preferredLanguages) else {
+          return "Quote.NewTitle"
+        }
+
+        return NSLocalizedString("Quote.NewTitle", tableName: "Localizible", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

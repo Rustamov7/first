@@ -23,17 +23,19 @@ class BooksViewController: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
         updateLayout(with: view.frame.size)
-        exitButton()
+        
         getData()
+        exitButton()
         
         
-        func exitButton() {
-            let barButton = UIBarButtonItem(title: R.string.localizible.exitNewTitle(),
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(logout(sender:)))
-            navigationItem.leftBarButtonItem = barButton
-        }
+        
+    }
+    @objc func exitButton() {
+        let barButton = UIBarButtonItem(title: R.string.localizible.exitNewTitle(),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(logout(sender:)))
+        navigationItem.leftBarButtonItem = barButton
         
     }
     @objc func logout(sender: UIBarButtonItem) {
