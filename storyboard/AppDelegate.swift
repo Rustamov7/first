@@ -21,11 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func checkLogin() {
         var controller = UIViewController()
+        let quoteVC = QuoteViewController()
+        let quotePresenter = QuotesPresenter()
+        quoteVC.presenter = quotePresenter
+        quotePresenter.viewController = quoteVC
+        
+        
         
         if (KeychainSwift().get(KeychainSwift.Keys.token.rawValue) != nil) {
             let tabBarViewController = UITabBarController()
             
-            tabBarViewController.viewControllers = [BooksViewController(), UIViewController()].map {
+            tabBarViewController.viewControllers = [BooksViewController(), quoteVC].map {
                 UINavigationController(rootViewController: $0)
             }
             controller = tabBarViewController

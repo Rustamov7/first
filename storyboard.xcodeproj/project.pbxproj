@@ -10,6 +10,13 @@
 		5E96058EAA58A6553780B182 /* Pods_storyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33428D16A3EF2176E4FAA73B /* Pods_storyboard.framework */; };
 		E70582BF266FCFC8001CB2C3 /* ChapterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70582BE266FCFC8001CB2C3 /* ChapterList.swift */; };
 		E70582C1266FD62D001CB2C3 /* ChaptersViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70582C0266FD62D001CB2C3 /* ChaptersViewControl.swift */; };
+		E70A478026A48AD90008E80A /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A477F26A48AD90008E80A /* QuoteViewController.swift */; };
+		E70A478226A48AF00008E80A /* QuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A478126A48AF00008E80A /* QuotePresenter.swift */; };
+		E70A478426A491840008E80A /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A478326A491840008E80A /* QuoteService.swift */; };
+		E70A478826A495720008E80A /* QuoteRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A478726A495720008E80A /* QuoteRoute.swift */; };
+		E70A478A26A49B520008E80A /* PaginationParameteres.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A478926A49B520008E80A /* PaginationParameteres.swift */; };
+		E70A478C26A49D860008E80A /* + Encodeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A478B26A49D860008E80A /* + Encodeble.swift */; };
+		E70A478F26A4A1890008E80A /* QuotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A478E26A4A1890008E80A /* QuotesList.swift */; };
 		E72C894D2673823E00B5F42F /* AutorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72C894C2673823E00B5F42F /* AutorizationService.swift */; };
 		E737C4682667B4A800BC08F2 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E737C4672667B4A800BC08F2 /* BooksViewController.swift */; };
 		E76BAE8326694D25004D268C /* ListOfBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76BAE8226694D25004D268C /* ListOfBooks.swift */; };
@@ -52,6 +59,13 @@
 		83883CF0B13B3FE666602BC5 /* Pods-storyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storyboard.release.xcconfig"; path = "Target Support Files/Pods-storyboard/Pods-storyboard.release.xcconfig"; sourceTree = "<group>"; };
 		E70582BE266FCFC8001CB2C3 /* ChapterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterList.swift; sourceTree = "<group>"; };
 		E70582C0266FD62D001CB2C3 /* ChaptersViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewControl.swift; sourceTree = "<group>"; };
+		E70A477F26A48AD90008E80A /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
+		E70A478126A48AF00008E80A /* QuotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePresenter.swift; sourceTree = "<group>"; };
+		E70A478326A491840008E80A /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
+		E70A478726A495720008E80A /* QuoteRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRoute.swift; sourceTree = "<group>"; };
+		E70A478926A49B520008E80A /* PaginationParameteres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationParameteres.swift; sourceTree = "<group>"; };
+		E70A478B26A49D860008E80A /* + Encodeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+ Encodeble.swift"; sourceTree = "<group>"; };
+		E70A478E26A4A1890008E80A /* QuotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesList.swift; sourceTree = "<group>"; };
 		E72C894C2673823E00B5F42F /* AutorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationService.swift; sourceTree = "<group>"; };
 		E737C4672667B4A800BC08F2 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		E76BAE8226694D25004D268C /* ListOfBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBooks.swift; sourceTree = "<group>"; };
@@ -128,9 +142,39 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		E70A477E26A488150008E80A /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				E70A478D26A4A1780008E80A /* Models */,
+				E70A478626A495580008E80A /* Service */,
+				E70A477F26A48AD90008E80A /* QuoteViewController.swift */,
+				E70A478126A48AF00008E80A /* QuotePresenter.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		E70A478626A495580008E80A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E70A478326A491840008E80A /* QuoteService.swift */,
+				E70A478726A495720008E80A /* QuoteRoute.swift */,
+				E70A478926A49B520008E80A /* PaginationParameteres.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E70A478D26A4A1780008E80A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E70A478E26A4A1890008E80A /* QuotesList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E737C4642667B3E800BC08F2 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				E70A477E26A488150008E80A /* Quotes */,
 				E76E2D13266DB78500D6D8CA /* Chapters */,
 				E737C4662667B44400BC08F2 /* Books */,
 				E737C4652667B3F400BC08F2 /* Login */,
@@ -205,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				E773EB1C268CFE6B004BA924 /* + KeychainSwift.swift */,
+				E70A478B26A49D860008E80A /* + Encodeble.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -472,13 +517,20 @@
 				E76E2D10266D690200D6D8CA /* BooksService.swift in Sources */,
 				E70582C1266FD62D001CB2C3 /* ChaptersViewControl.swift in Sources */,
 				E76BAE8326694D25004D268C /* ListOfBooks.swift in Sources */,
+				E70A478F26A4A1890008E80A /* QuotesList.swift in Sources */,
+				E70A478826A495720008E80A /* QuoteRoute.swift in Sources */,
 				E796EDF426679ECF0035F74A /* AutorizationViewController.swift in Sources */,
 				E773EB1D268CFE6B004BA924 /* + KeychainSwift.swift in Sources */,
+				E70A478026A48AD90008E80A /* QuoteViewController.swift in Sources */,
 				E76E2D0B266D671B00D6D8CA /* HTTPClient.swift in Sources */,
+				E70A478226A48AF00008E80A /* QuotePresenter.swift in Sources */,
 				E737C4682667B4A800BC08F2 /* BooksViewController.swift in Sources */,
+				E70A478C26A49D860008E80A /* + Encodeble.swift in Sources */,
 				E70582BF266FCFC8001CB2C3 /* ChapterList.swift in Sources */,
 				E76E2D12266D69A900D6D8CA /* BooksRoute.swift in Sources */,
 				E76E2D0D266D685C00D6D8CA /* Route.swift in Sources */,
+				E70A478A26A49B520008E80A /* PaginationParameteres.swift in Sources */,
+				E70A478426A491840008E80A /* QuoteService.swift in Sources */,
 				E796EDF026679ECF0035F74A /* AppDelegate.swift in Sources */,
 				E72C894D2673823E00B5F42F /* AutorizationService.swift in Sources */,
 				E77C1F8C26713A4800326B8D /* R.generated.swift in Sources */,
