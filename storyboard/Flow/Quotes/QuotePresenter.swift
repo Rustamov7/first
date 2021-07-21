@@ -24,11 +24,14 @@ class QuotesPresenter {
         if isLoading {
             return
         }
-        service?.getQuote(parameters: PaginationParameteres(limit: Constants.resultsLimit, offset: offset)) { response in
-            self.offset += Constants.resultsLimit
-            self.quotes.append(contentsOf: response.docs)
-            self.viewController?.reloadData()
-            self.isLoading = false
+        isLoading = true
+        service?.getQuote(parameters: PaginationParameteres(limit: Constants.resultsLimit, offset: offset)) { [self] response in
+            if self.offset < response.total {
+                self.offset += Constants.resultsLimit
+                self.quotes.append(contentsOf: response.docs)
+                self.viewController?.reloadData()
+                self.isLoading = false
+            }
         }
     }
 }

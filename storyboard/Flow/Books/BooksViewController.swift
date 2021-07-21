@@ -25,12 +25,12 @@ class BooksViewController: UIViewController{
         updateLayout(with: view.frame.size)
         
         getData()
-        exitButton()
+        createExitButton()
         
         
         
     }
-    @objc func exitButton() {
+    @objc func createExitButton() {
         let barButton = UIBarButtonItem(title: R.string.localizible.exitNewTitle(),
                                         style: .plain,
                                         target: self,
